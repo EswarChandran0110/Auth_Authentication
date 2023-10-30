@@ -1,25 +1,49 @@
 import { useState } from 'react'
-import {Routes,Route} from "react-router-dom"
-import LoginPage from './Pages/LoginPage'
+import {createBrowserRouter,RouterProvider} from "react-router-dom"
+import Layout from './Layout/Layout'
 import CsvPage from './Pages/CsvPage'
 import TicTacPage from './Pages/TicTacPage'
+import LoginPage from './Pages/LoginPage'
 import PermissionPage from './Pages/PermissionPage'
 import UsersPage from './Pages/UsersPage'
 
 // import './App.css'
+
+
+const router = createBrowserRouter([
+  {
+    element:<Layout/>,
+    children:[
+      {
+        path:"/",
+        element:<CsvPage/>,
+      },
+      {
+        path:"/users",
+        element:<UsersPage/>,
+      },
+      {
+        path:"/authorization",
+        element:<PermissionPage/>,
+      },
+      {
+        path:"/game",
+        element:<TicTacPage/>,
+      },
+   ],
+  },
+  {
+    path:"/login",
+    element:<LoginPage/>,
+  },
+])
 
 function App() {
   
 
   return (
     <>
-       <Routes>
-        <Route path="/login" element={<LoginPage/>}/>
-        <Route path="/" element={<CsvPage/>}/>
-        <Route path="/game" element={<TicTacPage/>}/>
-        <Route path="/authorization" element={<PermissionPage/>}/>
-        <Route path="/users" element={<UsersPage/>}/>
-       </Routes>
+    <RouterProvider router={router}/>
     </>
   )
 }
