@@ -1,16 +1,13 @@
-// src/components/UserTable.js
 import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { useContext } from 'react';
 import { PermissionContext } from '../Context/PermissionContext';
 function UserTable() {
     const { users, updateUserPermissions }= useContext(PermissionContext);
-  console.log(users)
-
   const handlePermissionChange = (userId, route) => (event) => {
     updateUserPermissions(userId, route, event.target.checked);
   };
-
+// console.log(users)
   return (
     <TableContainer component={Paper}>
       <Table>
