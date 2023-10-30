@@ -13,9 +13,9 @@ function PrivateGameRoute({children}) {
 
   console.log(gameAuth)
  
-  if (!gameAuth) {
-    return<Navigate to="/login" />;
-  }
+  // if (!gameAuth) {
+  //   return<Navigate to="/login" />;
+  // }
   
 
   return children
@@ -26,9 +26,9 @@ function PrivateGameRoute({children}) {
 function PrivateCsvEditRoute({children}) {
   const { csvAuth } = useContext(PermissionContext);
 
-  if (!csvAuth) {
-    return <Navigate to="/login" />
-  }
+  // if (!csvAuth) {
+  //   return <Navigate to="/login" />
+  // }
   return children
 }
 
