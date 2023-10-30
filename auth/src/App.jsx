@@ -1,14 +1,25 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import {Routes,Route} from "react-router-dom"
+import LoginPage from './Pages/LoginPage'
+import CsvPage from './Pages/CsvPage'
+import TicTacPage from './Pages/TicTacPage'
+import PermissionPage from './Pages/PermissionPage'
+import UsersPage from './Pages/UsersPage'
+
+// import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-      hi
+       <Routes>
+        <Route path="/login" element={<LoginPage/>}/>
+        <Route path="/" element={<CsvPage/>}/>
+        <Route path="/game" element={<TicTacPage/>}/>
+        <Route path="/authorization" element={<PermissionPage/>}/>
+        <Route path="/users" element={<UsersPage/>}/>
+       </Routes>
     </>
   )
 }
