@@ -1,5 +1,5 @@
 import { Grid, Paper } from "@mui/material";
-import X from '../../assets/x.png'
+
 const Cell = ({ cell, onClick }) => {
 
     

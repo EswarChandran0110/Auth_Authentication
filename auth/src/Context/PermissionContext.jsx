@@ -23,17 +23,18 @@ export const PermissionProvider = ({ children }) => {
     // console.log("users",users)
   };
   useEffect(() => {
+    if (loggedUser) {
       users.map(el => {
-      if (el.name === loggedUser.name) {
-        console.log("el.csvPermission",el.csvPermission)
-        console.log("el.gamePermission",el.gamePermission)
-        setCsvAuth(el.csvPermission)
-        setGameAuth(el.gamePermission)
-      }
-    })
+        if (el.name === loggedUser.name) {
+          console.log("el.csvPermission", el.csvPermission)
+          console.log("el.gamePermission", el.gamePermission)
+          setCsvAuth(el.csvPermission)
+          setGameAuth(el.gamePermission)
+        }
+      })
+    }
   }, [users])
-  // console.log(gameAuth)
-  // console.log(csvAuth)
+
   return (
     <PermissionContext.Provider value={{ users, updateUserPermissions, gameAuth, setGameAuth, csvAuth, setCsvAuth }}>
       {children}
