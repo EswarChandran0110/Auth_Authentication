@@ -34,12 +34,13 @@ const Layout = () => {
             </ListItemIcon>
             <ListItemText primary="Csv-Upload" />
           </ListItem>
-          <ListItem button component={Link} to="/game">
+          <ListItem button component={Link} to="/gameredirect">
             <ListItemIcon>
               <SettingsIcon />
             </ListItemIcon>
             <ListItemText primary="TicTacToe" />
           </ListItem>
+          
         </List>
       </Drawer>
       <div style={{ marginLeft: '240px' }}>
