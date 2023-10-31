@@ -5,45 +5,53 @@ import LoginPage from './Pages/LoginPage';
 import TicTacPage from './Pages/TicTacPage';
 import CsvPage from './Pages/CsvPage';
 import PermissionPage from './Pages/PermissionPage';
-import {createBrowserRouter,RouterProvider} from "react-router-dom"
+import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Layout from './Layout/Layout'
 import UsersPage from './Pages/UsersPage'
 import PrivateGameRoute from './Components/PrivateGameRoute';
 import PrivateCsvEditRoute from './Components/PrivateCsvEditRoute';
+import GamePageRedirect from './Pages/GamePageRedirect';
 
 
 
 const router = createBrowserRouter([
   {
-    element:<Layout/>,
-    children:[
+    element: <Layout />,
+    children: [
       {
-        path:"/csv",
-        element:<PrivateCsvEditRoute>
-                 <CsvPage/>
-                </PrivateCsvEditRoute>
+        path: "/csv",
+        element: <PrivateCsvEditRoute>
+          <CsvPage />
+        </PrivateCsvEditRoute>
         ,
       },
       {
-        path:"/users",
-        element:<UsersPage/>,
+        path: "/users",
+        element: <UsersPage />,
       },
       {
-        path:"/authorization",
-        element:<PermissionPage/>,
+        path: "/authorization",
+        element: <PermissionPage />,
       },
       {
-        path:"/game",
-        element: <PrivateGameRoute>
-                  <TicTacPage/>
-                </PrivateGameRoute>
+        path: "/game",
+        element:
+          // <PrivateGameRoute>
+          <TicTacPage />
+        // </PrivateGameRoute> 
         ,
       },
-   ],
+      {
+        path: "/gameredirect",
+        element: <GamePageRedirect />
+
+        ,
+      },
+    ],
   },
   {
-    path:"/",
-    element:<LoginPage/>,
+    path: "/",
+    element: <LoginPage />,
   },
 ])
 
@@ -51,7 +59,7 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
-    <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </>
   )
 }
