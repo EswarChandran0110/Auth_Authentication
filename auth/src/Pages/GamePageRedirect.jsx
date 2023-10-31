@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { json, useNavigate } from 'react-router-dom';
+import { PermissionContext } from '../Context/PermissionContext';
 
 const Container = styled.div`
   font-family: sans-serif;
@@ -25,6 +26,9 @@ const Container = styled.div`
 `;
 
 const GamePageRedirect = () => {
+  const {
+    startTicTac
+  } = useContext(PermissionContext);
   const [username, setUsername] = useState(JSON.parse(localStorage.getItem('useLogedId')) || '');
   const [secondUsername, setSecondUsername] = useState('');
   const [cellCount, setCellCount] = useState('3'); // Set default cell count
@@ -62,7 +66,7 @@ const GamePageRedirect = () => {
           <option value="9">9x9</option>
           <option value="11">11x11</option>
         </select>
-        <button onClick={handleStartGame}>Start New Game</button>
+        <button onClick={handleStartGame} disabled={!startTicTac}>Start New Game</button>
       </div>
     </Container>
   );
