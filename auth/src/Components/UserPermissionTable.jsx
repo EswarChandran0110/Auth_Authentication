@@ -2,7 +2,7 @@ import React from 'react';
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Checkbox } from '@mui/material';
 import { useContext } from 'react';
 import { PermissionContext } from '../Context/PermissionContext';
-function UserTable() {
+function UserPermissionTable() {
     const { users, updateUserPermissions }= useContext(PermissionContext);
   const handlePermissionChange = (userId, route) => (event) => {
     updateUserPermissions(userId, route, event.target.checked);
@@ -16,6 +16,9 @@ function UserTable() {
             <TableCell>User</TableCell>
             <TableCell>Game Permission</TableCell>
             <TableCell>CSV Edit Permission</TableCell>
+            <TableCell>CSV Download Permission</TableCell>
+            <TableCell>Start Game Permission</TableCell>
+            <TableCell>Reset Game Permission</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -34,6 +37,24 @@ function UserTable() {
                   onChange={handlePermissionChange(user.id, 'csv')}
                 />
               </TableCell>
+              <TableCell>
+                <Checkbox
+                  checked={user.csvDownlodPermission}
+                  onChange={handlePermissionChange(user.id, 'csvDownlod')}
+                />
+              </TableCell>
+              <TableCell>
+                <Checkbox
+                  checked={user.startGamePermission}
+                  onChange={handlePermissionChange(user.id, 'startGame')}
+                />
+              </TableCell>
+              <TableCell>
+                <Checkbox
+                  checked={user.resetGamePermission}
+                  onChange={handlePermissionChange(user.id, 'resetGame')}
+                />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -42,4 +63,4 @@ function UserTable() {
   );
 }
 
-export default UserTable;
+export default UserPermissionTable;
