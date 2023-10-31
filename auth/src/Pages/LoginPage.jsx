@@ -5,14 +5,7 @@ import { PermissionContext } from '../Context/PermissionContext';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
-
-export const userData = [
-    { id: 1, name: 'User 1', password: 'password1', gamePermission: false, csvPermission: false },
-    { id: 2, name: 'User 2', password: 'password2', gamePermission: false, csvPermission: false },
-    { id: 3, name: 'User 3', password: 'password3', gamePermission: false, csvPermission: false },
-    { id: 4, name: 'User 4', password: 'password4', gamePermission: false, csvPermission: false },
-    { id: 5, name: 'User 5', password: 'password5', gamePermission: false, csvPermission: false },
-  ];
+import {userData} from "../Context/PermissionContext"
 
 function LoginPage () {
     const [username, setUsername] = useState('');
