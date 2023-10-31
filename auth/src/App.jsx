@@ -36,14 +36,13 @@ const router = createBrowserRouter([
       {
         path: "/game",
         element:
-          // <PrivateGameRoute>
           <TicTacPage />
-        // </PrivateGameRoute> 
+
         ,
       },
       {
         path: "/gameredirect",
-        element: <GamePageRedirect />
+        element:<PrivateGameRoute><GamePageRedirect /></PrivateGameRoute>
 
         ,
       },

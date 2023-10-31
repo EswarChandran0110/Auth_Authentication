@@ -6,11 +6,11 @@ import PermissionProvider from './Context/PermissionContext'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
+  // <React.StrictMode>
       <PermissionProvider>
         <App />
       </PermissionProvider>
     
-  </React.StrictMode>
+  // {/* </React.StrictMode> */}
 
 )

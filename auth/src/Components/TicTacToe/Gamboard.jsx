@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Cell from "./Cells";
 import { Button, Grid } from "@mui/material";
 import CustomButton from "./CustomButton";
 import { styled } from "styled-components";
 import X from '../../assets/x.png'
 import O from '../../assets/o.png'
+import { PermissionContext } from "../../Context/PermissionContext";
 
 const GameBoard = () => {
+  const {
+    resetTicTac
+  } = useContext(PermissionContext);
   const [seconduserAndCell, setseconduserAndcell] = useState(JSON.parse(localStorage.getItem('gamedetails')) || '');
   const [cells, setCells] = useState(Array(9).fill(null));;
   // generateCells(Number(seconduserAndCell.cellCount))
@@ -30,7 +34,7 @@ const GameBoard = () => {
     setXIsNext(!xIsNext);
   };
 
-  console.log(cells)
+  console.log("resetTicTac",resetTicTac)
 
   function generateCells (size)  {
     const newCells = Array.from({ length: size }, () => Array(size).fill(null));
@@ -68,9 +72,13 @@ const GameBoard = () => {
 
   // Function to reset the current game
   const handleResetGame = () => {
-    setCells(Array(9).fill(null));
-    setWinner(null);
-    setXIsNext(true);
+    if(resetTicTac){
+      setCells(Array(9).fill(null));
+      setWinner(null);
+      setXIsNext(true);
+    }else{
+      alert("You are not Authorized for reset")
+    }
   };
 
   // Use useEffect to check for winner or draw scenario after every cell update
@@ -93,9 +101,9 @@ const GameBoard = () => {
   // Display winner or current player's turn
   let status = winner ? `Winner: ${winner}` : `${xIsNext ? X : O}`;
 
-  console.log(cells)
+  // console.log(cells)
 
-  console.log(cells)
+  // console.log(cells)
   return (
     <div>
       <PlayerTurn>Next Turn: <div><img height="30px" src={status} alt="" /></div></PlayerTurn>
@@ -108,7 +116,7 @@ const GameBoard = () => {
         })}
       </Grid>
       <ButtonDIV>
-        <CustomButton onClick={handleResetGame}>Reset Game</CustomButton>
+        <CustomButton disabled={resetTicTac!==true} onClick={handleResetGame} >Reset Game</CustomButton>
         <CustomButton  >Undo</CustomButton>
         {/* <CustomButton  >redu </CustomButton> */}
 
