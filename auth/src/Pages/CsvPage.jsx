@@ -7,22 +7,18 @@ import { styled } from '@mui/system';
 import { PermissionContext } from '../Context/PermissionContext';
 
 const AddButton = styled(Button)({
-  marginRight: '16px',
-  position: 'absolute',
-  top: '10px',
-  right: '10px',
   backgroundColor: '#00bbd1',
   color: 'white',
   '&:hover': {
     color: '#00bbd1',
     backgroundColor: '#191919',
-  },
+  }
 });
 
 const AppContainer = styled(Paper)({
   display: 'flex',
+  width:"80vw",
   flexDirection: 'column',
-  maxWidth: '100%',
   margin: '16px',
   padding: '16px',
 });
@@ -46,10 +42,12 @@ const CsvPage = () => {
 
   return (
     <AppContainer>
+      <div style={{display:"flex",justifyContent:"space-between"}}>
       <Typography variant="h5">CSV List</Typography>
-      <AddButton variant="contained" onClick={handleOpen}>
+      <AddButton variant="contained" style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}} onClick={handleOpen}>
         Add File
       </AddButton>
+      </div>
       <CsvUploader/>
       {showTable && (
         <div style={{ marginTop: '16px' }}>

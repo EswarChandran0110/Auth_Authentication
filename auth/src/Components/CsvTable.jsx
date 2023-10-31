@@ -16,7 +16,7 @@ const CsvTable = () => {
     isEditing,
     handleInputChange,
   } = useContext(PermissionContext);
-
+console.log(csvData)
   return (
     <StyledTableContainer>
       <Table>

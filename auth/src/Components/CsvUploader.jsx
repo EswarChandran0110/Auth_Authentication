@@ -27,8 +27,8 @@ const ModalContainer = styled(Paper)({
 
 const UploadButton = styled(Button)({
   width: '45%',
-  backgroundColor: '#00bbd1',
-  color: 'white',
+  backgroundColor: 'rgb(21 22 22)',
+  color: 'rgb(224 224 224)',
   '&:hover': {
     color: '#00bbd1',
     backgroundColor: '#191919',
@@ -37,8 +37,8 @@ const UploadButton = styled(Button)({
 
 const CancelButton = styled(Button)({
   width: '45%',
-  backgroundColor: '#00bbd1',
-  color: 'white',
+  backgroundColor: 'rgb(21 22 22)',
+  color: 'rgb(224 224 224)',
   '&:hover': {
     color: '#00bbd1',
     backgroundColor: '#191919',
@@ -79,7 +79,7 @@ const CsvUploader = () => {
         )}
         <FileInput type="file" accept=".csv" onChange={handleFileChange} id="fileInput" />
         <label htmlFor="fileInput">
-          <Button variant="contained" component="span" style={{ backgroundColor: '#00bbd1', color: 'white' }}>
+          <Button variant="contained" component="span" style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}}>
             Choose File
           </Button>
         </label>

@@ -39,33 +39,26 @@ const CsvEditButtons = () => {
     <CsvEditButtonsContainer>
       {isEditing ? (
         <div>
-          <Button variant="contained" color="secondary" onClick={handleCancelEdit}>
+          <Button variant="contained" style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}} onClick={handleCancelEdit}>
             Cancel
           </Button>
           <Button
             variant="contained"
-            style={{
-              backgroundColor: '#00bbd1',
-              color: 'white',
-              marginLeft: '10px',
-              '&:hover': {
-                color: '#00bbd1',
-                backgroundColor: '#191919',
-              },
-            }}
+            style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}}
             onClick={handleSaveClick}
           >
             Save
           </Button>
         </div>
       ) : (
-        <EditButton variant="contained" onClick={handleEditClick}>
+        <EditButton variant="contained" style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}} onClick={handleEditClick}>
           Edit
         </EditButton>
       )}
-      {editedFile && downloadPermission && (
+      {
+      editedFile && downloadPermission && (
         <a href={editedFile} download="edited.csv">
-          <DownloadButton variant="contained" startIcon={<GetAppIcon />}>
+          <DownloadButton variant="contained" style={{color:"rgb(224 224 224)",background:'rgb(21 22 22)'}} startIcon={<GetAppIcon />}>
             Download Edited File
           </DownloadButton>
         </a>

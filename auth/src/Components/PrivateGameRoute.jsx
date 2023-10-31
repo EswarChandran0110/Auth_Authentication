@@ -4,8 +4,9 @@ import { useContext } from "react";
 
 function PrivateGameRoute({children}) {
     const { gameAuth } = useContext(PermissionContext);
-    console.log(gameAuth)
+    // console.log(gameAuth)
     if(!gameAuth){
+        alert("Please Athorize for Game Permission")
         return(<Navigate to ="/authorization"/>)
     }
     return children
