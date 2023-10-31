@@ -28,7 +28,7 @@ const Layout = () => {
             </ListItemIcon>
             <ListItemText primary="Permissions" />
           </ListItem>
-          <ListItem button component={Link} to="/">
+          <ListItem button component={Link} to="/csv">
             <ListItemIcon>
               <DashboardIcon />
             </ListItemIcon>

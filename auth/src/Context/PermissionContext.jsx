@@ -4,14 +4,14 @@ import { userData } from '../Pages/LoginPage';
 
 export const PermissionContext = createContext();
 
-export const PermissionProvider = ({ children }) => {
+ const PermissionProvider = ({ children }) => {
   const [users, setUsers] = useState(userData);
 
   const [gameAuth, setGameAuth] = useState(false);
   const [csvAuth, setCsvAuth] = useState(false);
 
   const loggedUser = JSON.parse(localStorage.getItem("useLogedId"))
-  console.log(loggedUser)
+  // console.log(loggedUser)
   const updateUserPermissions = (userId, route, value) => {
     // console.log("loggedUser",loggedUser.id)
     setUsers((prevUsers) => {
@@ -25,18 +25,19 @@ export const PermissionProvider = ({ children }) => {
   useEffect(() => {
       users.map(el => {
       if (el.name === loggedUser.name) {
-        console.log("el.csvPermission",el.csvPermission)
-        console.log("el.gamePermission",el.gamePermission)
+        // console.log("el.csvPermission",el.csvPermission)
+        // console.log("el.gamePermission",el.gamePermission)
         setCsvAuth(el.csvPermission)
         setGameAuth(el.gamePermission)
       }
     })
   }, [users])
-  // console.log(gameAuth)
-  // console.log(csvAuth)
+  console.log(gameAuth)
+  console.log(csvAuth)
   return (
     <PermissionContext.Provider value={{ users, updateUserPermissions, gameAuth, setGameAuth, csvAuth, setCsvAuth }}>
       {children}
     </PermissionContext.Provider>
   );
 };
+export default PermissionProvider;

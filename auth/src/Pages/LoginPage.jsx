@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PermissionContext } from '../Context/PermissionContext';
 import TextField from '@mui/material/TextField';
@@ -29,7 +29,7 @@ function LoginPage () {
       setCsvAuth(user.csvPermission);
       console.log("gameAuth",gameAuth)
       console.log("csvAuth",csvAuth)
-      navigate("/")
+      navigate("/authorization")
     } else {
       alert('Invalid credentials. Please try again.');
     }
