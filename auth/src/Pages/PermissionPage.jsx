@@ -1,12 +1,12 @@
 // src/components/PermissionPage.js
 import React from 'react';
-import UserTable from '../Components/UserTable';
+import UserPermissionTable from '../Components/UserPermissionTable';
 
 function PermissionPage() {
   return (
     <div>
       <h1>User Permissions</h1>
-      <UserTable />
+      <UserPermissionTable />
     </div>
   );
 }
