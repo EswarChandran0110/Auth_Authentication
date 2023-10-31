@@ -11,14 +11,14 @@ function UserPermissionTable() {
   return (
     <TableContainer component={Paper}>
       <Table>
-        <TableHead>
+        <TableHead style={{background:'rgb(21 22 22)'}}>
           <TableRow>
-            <TableCell>User</TableCell>
-            <TableCell>Game Permission</TableCell>
-            <TableCell>CSV Edit Permission</TableCell>
-            <TableCell>CSV Download Permission</TableCell>
-            <TableCell>Start Game Permission</TableCell>
-            <TableCell>Reset Game Permission</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>User</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>Game Permission</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>CSV Edit Permission</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>CSV Download Permission</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>Start Game Permission</TableCell>
+            <TableCell style={{color:"rgb(224 224 224)"}}>Reset Game Permission</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
